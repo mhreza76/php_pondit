@@ -16,3 +16,13 @@ print_r("afdsfada
 asdfasfs
             adfaf");
 echo '</pre>';
+
+
+echo "govt. girl's school";
+echo '<br>';
+echo 'govt. girl\'s school';
+echo '<br>';
+echo nl2br("use nl2br function
+ for line break \n lorem ipsum dolor sit amet,\n consectetur adip \n") ;
+
+
