@@ -1,0 +1,14 @@
+Exam: String Functions                        	
+Time: 40min (09:40pm – 10:15pm)
+Date: 08/04/2021
+
+Please give an example of the following functions:
+	•	substr; 
+	•	strpos, 
+	•	implode, 
+	•	strlen, 
+	•	strtolower & strtoupper;  
+	•	explode; 
+	•	echo, nl2br, print  
+
+Note: Please do not give the examples which has already given in the class.
