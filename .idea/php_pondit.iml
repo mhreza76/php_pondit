@@ -6,6 +6,11 @@
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/session_04/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/session_04/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/session_04/vendor/myclabs/deep-copy" />
+      <excludeFolder url="file://$MODULE_DIR$/session_04/vendor/setasign/fpdi" />
+      <excludeFolder url="file://$MODULE_DIR$/session_04/vendor/mpdf/mpdf" />
+      <excludeFolder url="file://$MODULE_DIR$/session_04/vendor/paragonie/random_compat" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -3,6 +3,11 @@
   <component name="PhpIncludePathManager">
     <include_path>
       <path value="$PROJECT_DIR$/session_04/vendor/composer" />
+      <path value="$PROJECT_DIR$/session_04/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/session_04/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/session_04/vendor/setasign/fpdi" />
+      <path value="$PROJECT_DIR$/session_04/vendor/mpdf/mpdf" />
+      <path value="$PROJECT_DIR$/session_04/vendor/paragonie/random_compat" />
     </include_path>
   </component>
 </project>
