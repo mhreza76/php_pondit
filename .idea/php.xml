@@ -10,4 +10,7 @@
       <path value="$PROJECT_DIR$/session_04/vendor/paragonie/random_compat" />
     </include_path>
   </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.0">
+    <option name="suggestChangeDefaultLanguageLevel" value="false" />
+  </component>
 </project>
