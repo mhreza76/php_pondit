@@ -71,7 +71,7 @@
                                 <div class="col-sm-5 col-md-5">
                                     <p class="display-6">Child's Details</p>
                                     <div class="form-group row">
-                                        <div class="col-md-5 mb-3">
+                                        <div class="col-md-5 mb-3" >
                                             <label for="childFirstname">First name</label>
                                             <input type="text" class="form-control" id="childFirstname"
                                                    name="childFirstname">
