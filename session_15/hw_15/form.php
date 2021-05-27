@@ -17,6 +17,31 @@
           integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
     <title>Certificate Of Live Birth</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+    <link rel="stylesheet" href="datepicker.css">
+    <script src="./bootstrap-datepicker.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#childTimeOfBirth').timepicker({
+                timeFormat: 'h:mm p',
+                interval: 1,
+                minTime: '12:00am',
+                maxTime: '11:59pm',
+                defaultTime: '11',
+                startTime: '10:00',
+                dynamic: false,
+                dropdown: true,
+                scrollbar: true
+            });
+            $(function (){
+                $('.datepicker').datepicker({
+                    startDate: '-3d'
+                });
+            });
+        });
+    </script>
 </head>
 <body>
 <section>
@@ -100,7 +125,7 @@
                                     <div class="form-group row">
                                         <div class="col-md-12 mb-3">
                                             <label for="childTimeOfBirth">Time of Birth(24hr)</label>
-                                            <input type="text" class="form-control" id="childTimeOfBirth"
+                                            <input type="text" class="form-control timepicker" id="childTimeOfBirth"
                                                    name="childTimeOfBirth">
                                         </div>
                                     </div>
@@ -117,7 +142,7 @@
                                         <div class="col-md-2 mb-3"></div>
                                         <div class="col-md-5 mb-3">
                                             <label for="childDateOfBirth">Date of Birth(Mo/Day/Yr)</label>
-                                            <input type="text" class="form-control" id="childDateOfBirth"
+                                            <input type="text" class="form-control datepicker" id="childDateOfBirth"
                                                    name="childDateOfBirth">
                                         </div>
                                     </div>
