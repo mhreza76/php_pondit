@@ -132,8 +132,8 @@
 
                                     <div class="form-group row">
                                         <div class="col-md-5 mb-3">
-                                            <label for="childSex">Sex</label>
-                                            <select class="form-select" aria-label="childSex" name="childSex">
+                                            <label for="child_gender">Gender</label>
+                                            <select class="form-select" aria-label="child_gender" name="child_gender">
                                                 <option value="male" selected>Male</option>
                                                 <option value="female">Female</option>
                                                 <option value="other">Other</option>
@@ -141,9 +141,9 @@
                                         </div>
                                         <div class="col-md-2 mb-3"></div>
                                         <div class="col-md-5 mb-3">
-                                            <label for="childDateOfBirth">Date of Birth(Mo/Day/Yr)</label>
-                                            <input type="text" class="form-control datepicker" id="childDateOfBirth"
-                                                   name="childDateOfBirth">
+                                            <label for="child_date_of_birth">Date of Birth(Mo/Day/Yr)</label>
+                                            <input type="text" class="form-control datepicker" id="child_date_of_birth"
+                                                   name="child_date_of_birth">
                                         </div>
                                     </div>
 
@@ -453,12 +453,12 @@
                                                 <label for="motherPriorZipCode">Inside City Limits?</label>
                                                 <div class="mt-1">
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="motherPriorInsideCityLimits" id="yes" value="yes">
-                                                        <label class="form-check-label" for="yes">Yes</label>
+                                                        <input class="form-check-input" type="radio" name="toggle" id="inside_city_limits_yes" value="1">
+                                                        <label class="form-check-label" for="inside_city_limits_yes">Yes</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="motherPriorInsideCityLimits" id="no" value="no">
-                                                        <label class="form-check-label" for="no">No</label>
+                                                        <input class="form-check-input" type="radio" name="toggle" id="inside_city_limits_no" value="0">
+                                                        <label class="form-check-label" for="inside_city_limits_no">No</label>
                                                     </div>
                                                 </div>
                                             </div>
