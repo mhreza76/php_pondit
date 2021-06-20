@@ -1,22 +1,3 @@
-<?php
-include_once ($_SERVER['DOCUMENT_ROOT'] . '/php_pondit/guest_book/config.php');
-
-
-use App\GuestBook\GuestBook;
-use App\Utility\Utility;
-use App\Utility\Sanitizer;
-use App\Utility\Validator;
-
-if(Utility :: isPosted()){
-    $sanitizedData = Sanitizer::sanitize($_POST);
-    $validatedData = Validator::validate($sanitizedData);
-    $guestbook = new GuestBook($validatedData);
-
-//    Debugger::debug($guestbook);
-}
-
-
-?>
 
 <!doctype html>
 <html lang="en">
@@ -36,15 +17,34 @@ if(Utility :: isPosted()){
         <h1 class="text-center mb-4">Guest Book</h1>
         <div class="row">
             <div class="col-sm-5 offset-3">
-                <dl class="row">
-                    <dt class="col-sm-3">Full Name:</dt>
-                    <dd class="col-sm-9"><?= isset($guestbook) ? $guestbook->full_name : 'Not Provided';?></dd>
-                    <dt class="col-sm-3">Comment:</dt>
-                    <dd class="col-sm-9"><?= isset($guestbook) ? $guestbook->comment : 'Not Provided';?></dd>
-                </dl>
-                <a href="list.php?newHello=<?php echo $_GET['hello'];?>">Go to List Page.</a>
+                <form method="POST" action="show.php">
+                    <div class="row mb-3">
+                        <label for="full_name" class="col-sm-3 col-form-label">Full Name:</label>
+                        <div class="col-sm-9">
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="full_name"
+                                name="full_name"
+                                value=""
+                                placeholder="Write your full name">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="comment" class="col-sm-3 col-form-label">Enter comment</label>
+                        <div class="col-sm-9">
+                            <textarea type="text" name="comment" class="form-control" id="comment" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+
+                </form>
+
             </div>
         </div>
+
     </div>
 </section>
 

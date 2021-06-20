@@ -6,13 +6,16 @@ use App\GuestBook\GuestBook;
 use App\Utility\Utility;
 use App\Utility\Sanitizer;
 use App\Utility\Validator;
+use App\Utility\Debugger;
 
 if(Utility :: isPosted()){
     $sanitizedData = Sanitizer::sanitize($_POST);
     $validatedData = Validator::validate($sanitizedData);
     $guestbook = new GuestBook($validatedData);
 
-//    Debugger::debug($guestbook);
+    Debugger::debug($guestbook);
+ 
+    setcookie('name', 'reza', time() + (86400 * 30), "/"); // 86400 = 1 day
 }
 
 
@@ -42,7 +45,26 @@ if(Utility :: isPosted()){
                     <dt class="col-sm-3">Comment:</dt>
                     <dd class="col-sm-9"><?= isset($guestbook) ? $guestbook->comment : 'Not Provided';?></dd>
                 </dl>
-                <a href="list.php?newHello=<?php echo $_GET['hello'];?>">Go to List Page.</a>
+                <a href="index.php?hello=hi">Go to index.</a>
+
+                <form method="GET" action="index.php">
+                    <div class="row mb-3">
+<!--                        <label for="full_name" class="col-sm-3 col-form-label">Full Name:</label>-->
+                        <div class="col-sm-9">
+                            <input
+                                    type="hidden"
+                                    class="form-control"
+                                    id="full_name1"
+                                    name="full_name1"
+                                    value="<?php echo $guestbook->full_name; ?>;?>"
+                                    placeholder="Write your full name">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+
+                </form>
             </div>
         </div>
     </div>
