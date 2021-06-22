@@ -10,7 +10,9 @@ class GuestBook
     public $comment = null;
 
     public function __construct($data){
-        $this->full_name = $data['full_name'];
+        if(array_key_exists('full_name', $data)){
+            $this->full_name = $data['full_name'];
+        }
         $this->comment = $data['comment'];
     }
 }

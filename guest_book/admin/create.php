@@ -17,7 +17,7 @@
         <h1 class="text-center mb-4">Guest Book</h1>
         <div class="row">
             <div class="col-sm-5 offset-3">
-                <form method="POST" action="show.php">
+                <form method="POST" action="store.php">
                     <div class="row mb-3">
                         <label for="full_name" class="col-sm-3 col-form-label">Full Name:</label>
                         <div class="col-sm-9">
