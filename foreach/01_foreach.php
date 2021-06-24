@@ -20,3 +20,29 @@ foreach ($salaries as $index => $value){
     echo "$index : $value";
     echo '</br>';
 }
+
+//Associative Array
+$items = [
+    'item1' => 'Mobile',
+    'item2' => 'Charger',
+    'item3' => 'Cable'
+];
+
+echo '<ol>';
+foreach ($items as $value){
+    echo "<li>$value</li>";
+}
+echo '</ol>';
+
+$name = [
+    'first_name' => 'Mahmudul',
+    'middle_name' => 'Hasan',
+    'last_name' => 'Reza'
+];
+echo '<ul>';
+foreach ($name as $value){
+    echo "<li>$value</li>";
+}
+echo '</ul>';
+
+
