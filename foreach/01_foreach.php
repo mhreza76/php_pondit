@@ -46,3 +46,34 @@ foreach ($name as $value){
 echo '</ul>';
 
 
+//Multidimensional Array
+$students = array(
+    array(
+        'name' => 'Reza',
+        'id' => '1105060',
+        'department' => 'CSE',
+    ),
+    array(
+        'name' => 'Ome',
+        'id' => '1105073',
+        'department' => 'CSE',
+    ),
+    array(
+        'name' => 'Daud',
+        'id' => '1105076',
+        'department' => 'EEE',
+    )
+);
+
+foreach ($students as $student){
+//    echo '<pre>';
+//        print_r($student);
+//    echo '</pre>';
+
+    foreach ($student as $key => $value){
+        echo "$key : $value";
+        echo '</br>';
+    }
+    echo '</br>';
+}
+echo '</br>';
