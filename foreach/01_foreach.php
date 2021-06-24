@@ -77,3 +77,15 @@ foreach ($students as $student){
     echo '</br>';
 }
 echo '</br>';
+
+$colors = array('Red', 'Green', 'Yellow');
+$fruits = array('Banana', 'Apple', 'Plum');
+
+foreach ($colors as $color){
+    foreach ($fruits as $fruit){
+        echo "This is a $color $fruit";
+        echo '</br>';
+    }
+    echo '</br>';
+}
+echo '</br>';
