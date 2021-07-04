@@ -49,26 +49,17 @@ if (array_key_exists('guestbook_data', $_COOKIE)) {
                     </thead>
                     <tbody>
                     <?php
-                    if(isset($storedData) && count($storedData) > 0){
-                        $i = 0;
-                        foreach ($storedData as $key => $data) {
-                            ?>
-                            <tr>
-                                <td><?= $i++; ?></td>
-                                <td><?= $data['full_name']; ?></td>
-                                <td><a href="show.php? guestsPosition=<?= $key ?>" style="text-decoration: none;">Show</a> |
-                                    <a href="edit.php? guestsPosition=<?= $key ?>" style="text-decoration: none;">Edit</a> |
-                                    <a href="delete.php?guestsPosition=<?= $key ?>" style="text-decoration: none;">Delete</a>
-                                </td>
-                            </tr>
-                            <?php
-                        }
-                    }else{
+                    foreach ($storedData as $key => $data) {
                         ?>
                         <tr>
-                            <td colspan="3">No data is Available.</td>
+                            <td><?= $key; ?></td>
+                            <td><?= $data['full_name']; ?></td>
+                            <td><a href="show.php? guestsPosition=<?= $key ?>" style="text-decoration: none;">Show</a> |
+                                <a href="show.php? guestsPosition=<?= $key ?>" style="text-decoration: none;">Edit</a> |
+                                <a href="delete.php?guestsPosition=<?= $key ?>" style="text-decoration: none;">Delete</a>
+                            </td>
                         </tr>
-                    <?php
+                        <?php
                     }
                     ?>
 

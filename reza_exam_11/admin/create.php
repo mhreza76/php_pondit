@@ -1,32 +1,3 @@
-<?php
-include_once ($_SERVER['DOCUMENT_ROOT'] . '/php_pondit/guest_book/config.php');
-
-
-use App\GuestBook\GuestBook;
-//use App\Utility\Utility;
-use App\Utility\Debugger;
-
-//if(Utility :: isPosted()){
-//
-//}
-$storedData = null;
-$guestsPosition = $_GET['guestsPosition'];
-
-
-//$strValidateData = [];
-
-if(array_key_exists('guestbook_data', $_COOKIE)){
-    $strValidatedData = $_COOKIE['guestbook_data'];
-    $guests = unserialize($strValidatedData);
-}
-
-$guest = $guests[$guestsPosition];
-Debugger::debug($guest);
-
-//$guestbook = new GuestBook($storedData);
-//Debugger::debug($guestbook);
-//setcookie('name', 'reza', time() + (86400 * 30), "/"); // 86400 = 1 day
-?>
 
 <!doctype html>
 <html lang="en">
@@ -46,16 +17,34 @@ Debugger::debug($guest);
         <h1 class="text-center mb-4">Guest Book</h1>
         <div class="row">
             <div class="col-sm-5 offset-3">
-                <dl class="row">
-                    <dt class="col-sm-3">Full Name:</dt>
-                    <dd class="col-sm-9"><?= $guest['full_name'];?></dd>
-                    <dt class="col-sm-3">Comment:</dt>
-                    <dd class="col-sm-9"><?= $guest['comment'];?></dd>
-                </dl>
-                <a href="index1.php?hello=hi">Go to index.</a>
+                <form method="POST" action="store.php">
+                    <div class="row mb-3">
+                        <label for="full_name" class="col-sm-3 col-form-label">Full Name:</label>
+                        <div class="col-sm-9">
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="full_name"
+                                name="full_name"
+                                value=""
+                                placeholder="Write your full name">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="comment" class="col-sm-3 col-form-label">Enter comment</label>
+                        <div class="col-sm-9">
+                            <textarea type="text" name="comment" class="form-control" id="comment" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+
+                </form>
 
             </div>
         </div>
+
     </div>
 </section>
 
