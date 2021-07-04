@@ -20,13 +20,13 @@ if(Utility :: isPosted()) {
     $validatedData = Validator::validate($sanitizedData);
 
     if(!$validatedData){
-        header('location:list.php');
+        header('location:index.php');
     }else{
         $guests[$guestsPosition] = $validatedData;
         $result = setcookie('guestbook_data', serialize($guests), time() + (86400 * 30), "/"); // 86400 = 1 day
 
         if($result){
-            header('location:list.php');
+            header('location:index.php');
         }else{
             echo 'Data has not been saved successfully';
         }

@@ -1,6 +1,6 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'] . '/php_pondit/guest_book/config.php');
-use App\GuestBook\GuestBook;
+include_once($_SERVER['DOCUMENT_ROOT'] . '/php_pondit/reza_exam_11/config.php');
+
 use App\Utility\Utility;
 use App\Utility\Sanitizer;
 use App\Utility\Validator;
@@ -20,7 +20,7 @@ $converted_str = serialize($guests);
 
 $result = setcookie('guestbook_data', $converted_str, time() + (86400 * 30), "/"); // 86400 = 1 day
 if($result){
-    header('location:list.php');
+    header('location:index.php');
 }else{
     echo 'Data has not been saved in cookie.';
 }

@@ -1,5 +1,5 @@
 <?php
-include_once ($_SERVER['DOCUMENT_ROOT'] . '/php_pondit/guest_book/config.php');
+include_once ($_SERVER['DOCUMENT_ROOT'] . '/php_pondit/reza_exam_11/config.php');
 
 
 use App\GuestBook\GuestBook;
@@ -21,7 +21,7 @@ if(array_key_exists('guestbook_data', $_COOKIE)){
 }
 
 $guest = $guests[$guestsPosition];
-Debugger::debug($guest);
+//Debugger::debug($guest);
 
 //$guestbook = new GuestBook($storedData);
 //Debugger::debug($guestbook);
@@ -43,16 +43,20 @@ Debugger::debug($guest);
 <body>
 <section>
     <div class="container">
-        <h1 class="text-center mb-4">Guest Book</h1>
+        <h1 class="text-center mb-4">CONTACT US</h1>
         <div class="row">
             <div class="col-sm-5 offset-3">
                 <dl class="row">
-                    <dt class="col-sm-3">Full Name:</dt>
-                    <dd class="col-sm-9"><?= $guest['full_name'];?></dd>
-                    <dt class="col-sm-3">Comment:</dt>
-                    <dd class="col-sm-9"><?= $guest['comment'];?></dd>
+                    <dt class="col-sm-3">First Name:</dt>
+                    <dd class="col-sm-9"><?= $guest['firstName'];?></dd>
+                    <dt class="col-sm-3">Last Name:</dt>
+                    <dd class="col-sm-9"><?= $guest['lastName'];?></dd>
+                    <dt class="col-sm-3">Email:</dt>
+                    <dd class="col-sm-9"><?= $guest['email'];?></dd>
+                    <dt class="col-sm-3">Message:</dt>
+                    <dd class="col-sm-9"><?= $guest['message'];?></dd>
                 </dl>
-                <a href="index1.php?hello=hi">Go to index.</a>
+                <a href="index.php?hello=hi">Go to index.</a>
 
             </div>
         </div>

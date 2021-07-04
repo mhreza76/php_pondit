@@ -1,8 +1,6 @@
 <?php
-include_once ($_SERVER['DOCUMENT_ROOT'] . '/php_pondit/guest_book/config.php');
+include_once ($_SERVER['DOCUMENT_ROOT'] . '/php_pondit/reza_exam_11/config.php');
 
-
-use App\GuestBook\GuestBook;
 use App\Utility\Utility;
 use App\Utility\Sanitizer;
 use App\Utility\Validator;
@@ -27,7 +25,7 @@ if(Utility :: isPosted()){
         $result = setcookie('guestbook_data', $strValidatedData, time() + (86400 * 30), "/"); // 86400 = 1 day
 
         if($result){
-            header('location:list.php');
+            header('location:index.php');
         }else{
             echo 'Data has not been saved successfully';
         }
@@ -54,7 +52,7 @@ if(Utility :: isPosted()){
 </head>
 <body>
 <div>
-    <a href="list.php">Go to List.</a>
+    <a href="index.php">Go to Index Page.</a>
 </div>
 </body>
 </html>
