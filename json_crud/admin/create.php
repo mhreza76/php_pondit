@@ -1,17 +1,3 @@
-<?php
-include_once ($_SERVER['DOCUMENT_ROOT'] . '/php_pondit/json_crud/config.php');
-
-$user_json_data = file_get_contents($data_source);
-$users = json_decode($user_json_data,true);
-
-$user_position = $_GET['user_position'];
-
-$user = $users[$user_position];
-
-
-use App\Utility\Debugger;
-
-?>
 
 <!doctype html>
 <html lang="en">
@@ -31,16 +17,40 @@ use App\Utility\Debugger;
         <h1 class="text-center mb-4">JSON CRUD</h1>
         <div class="row">
             <div class="col-sm-5 offset-3">
-                <dl class="row">
-                    <dt class="col-sm-3">Full Name:</dt>
-                    <dd class="col-sm-9"><?= $user['name'];?></dd>
-                    <dt class="col-sm-3">Email:</dt>
-                    <dd class="col-sm-9"><?= $user['email'];?></dd>
-                </dl>
-                <a href="index.php?hello=hi">Go to index.</a>
+                <form method="POST" action="store.php">
+                    <div class="row mb-3">
+                        <label for="full_name" class="col-sm-3 col-form-label">Name:</label>
+                        <div class="col-sm-9">
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="name"
+                                name="name"
+                                value=""
+                                placeholder="Write your name">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="comment" class="col-sm-3 col-form-label">Email</label>
+                        <div class="col-sm-9">
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="email"
+                                name="email"
+                                value=""
+                                placeholder="Write your email">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+
+                </form>
 
             </div>
         </div>
+
     </div>
 </section>
 
