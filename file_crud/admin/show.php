@@ -1,31 +1,21 @@
 <?php
-include_once ($_SERVER['DOCUMENT_ROOT'] . '/php_pondit/reza_exam_12/config.php');
-session_start();
-
+include_once ($_SERVER['DOCUMENT_ROOT'] . '/php_pondit/file_crud/config.php');
 use App\GuestBook\GuestBook;
 //use App\Utility\Utility;
 use App\Utility\Debugger;
 
-//if(Utility :: isPosted()){
-//
-//}
-$storedData = null;
-$user_position = $_GET['user_position'];
+$guests = [];
 
-
-//$strValidateData = [];
-
-if(array_key_exists('feedback_data', $_SESSION)){
-    $strValidatedData = $_SESSION['feedback_data'];
-    $users = unserialize($strValidatedData);
+if(file_exists($data_source)){
+    $guests = unserialize(file_get_contents($data_source));
+}else{
+    echo "File not found";
 }
 
-$user = $users[$user_position];
-//Debugger::debug($guest);
+$guestsPosition = $_GET['guestsPosition'];
+$guest = $guests[$guestsPosition];
 
-//$guestbook = new GuestBook($storedData);
-//Debugger::debug($guestbook);
-//setcookie('name', 'reza', time() + (86400 * 30), "/"); // 86400 = 1 day
+//Debugger::debug($guest);
 ?>
 
 <!doctype html>
@@ -38,25 +28,23 @@ $user = $users[$user_position];
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
-    <title>Guest Book</title>
+    <title>File CRUD</title>
 </head>
 <body>
 <section>
     <div class="container">
-        <h1 class=" mb-4 pt-5 offset-4 " style="color: #31D2F2"> Feedback</h1>
+        <h1 class="text-center mb-4">Users</h1>
         <div class="row">
-            <div class="col-sm-8 offset-3">
+            <div class="col-sm-5 offset-5">
                 <dl class="row">
                     <dt class="col-sm-3">First Name:</dt>
-                    <dd class="col-sm-9"><?= $user['first_name'];?></dd>
+                    <dd class="col-sm-9"><?= $guest['firstName'];?></dd>
                     <dt class="col-sm-3">Last Name:</dt>
-                    <dd class="col-sm-9"><?= $user['last_name'];?></dd>
+                    <dd class="col-sm-9"><?= $guest['lastName'];?></dd>
                     <dt class="col-sm-3">Email:</dt>
-                    <dd class="col-sm-9"><?= $user['email'];?></dd>
-                    <dt class="col-sm-3">Mobile Number:</dt>
-                    <dd class="col-sm-9"><?= $user['mobile_number'];?></dd>
+                    <dd class="col-sm-9"><?= $guest['email'];?></dd>
                     <dt class="col-sm-3">Message:</dt>
-                    <dd class="col-sm-9"><?= $user['message'];?></dd>
+                    <dd class="col-sm-9"><?= $guest['message'];?></dd>
                 </dl>
                 <a href="index.php?hello=hi">Go to index.</a>
 

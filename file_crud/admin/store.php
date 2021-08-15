@@ -1,41 +1,39 @@
 <?php
-include_once ($_SERVER['DOCUMENT_ROOT'] . '/php_pondit/reza_exam_12/config.php');
+include_once ($_SERVER['DOCUMENT_ROOT'] . '/php_pondit/file_crud/config.php');
 session_start();
 use App\Utility\Utility;
 use App\Utility\Sanitizer;
 use App\Utility\Validator;
 use App\Utility\Debugger;
 
-$users = [];
-if(array_key_exists('feedback_data', $_SESSION)){
-    $strValidatedData = $_SESSION['feedback_data'];
-    $users = unserialize($strValidatedData);
+$guests = [];
+
+if(file_exists($data_source)){
+    $guests = unserialize(file_get_contents($data_source));
+}else{
+    echo "File not found";
 }
 
 if(Utility :: isPosted()){
     $sanitizedData = Sanitizer::sanitize($_POST);
     $validatedData = Validator::validate($sanitizedData);
-//    $guests= $validatedData;
-//    $strValidatedData = serialize($guests);
+
 
     if(!$validatedData){
-        header('location:index.php');
+        header('location:create.php');
     }else{
 
-        $users[] = $validatedData;
-        $_SESSION['feedback_data'] = serialize($users);
-        if(array_key_exists('feedback_data', $_SESSION)){
+        $guests[] = $validatedData;
+
+        if(file_put_contents($data_source, serialize($guests))){
             header('location:index.php');
-//            Debugger::debug($_SESSION);
         }else{
             echo 'Data has not been saved successfully';
         }
     }
-    //Debugger::debug($strValidatedData);
 }
 
-//$strValidatedData = serialize($validatedData);
-//$guestbook = new GuestBook($validatedData);
+Debugger::debug($guests);
 
 
 

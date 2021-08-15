@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'] . '/php_pondit/session_crud/config.php');
+include_once($_SERVER['DOCUMENT_ROOT'] . '/php_pondit/reza_exam_12/config.php');
 session_start();
 
 //use App\Utility\Utility;
@@ -9,17 +9,17 @@ use App\Utility\Debugger;
 //
 //}
 $storedData = null;
-$guestsPosition = $_GET['guestsPosition'];
+$user_position = $_GET['user_position'];
 
 
 //$strValidateData = [];
 
-if (array_key_exists('guestbook_data', $_SESSION)) {
-    $strValidatedData = $_SESSION['guestbook_data'];
-    $guests = unserialize($strValidatedData);
+if (array_key_exists('feedback_data', $_SESSION)) {
+    $strValidatedData = $_SESSION['feedback_data'];
+    $users = unserialize($strValidatedData);
 }
 
-$guest = $guests[$guestsPosition];
+$user = $users[$user_position];
 //Debugger::debug($guest);
 ?>
 
@@ -38,41 +38,46 @@ $guest = $guests[$guestsPosition];
     <title>cookie crud</title>
 </head>
 <body>
+
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-sm-8 offset-2">
-                <h1 class=" mb-4 pt-5">CONTACT US</h1>
-                <div class="form-text mb-4">We'd love to hear from you, please drop us a line if you've any query.</div>
-                <form method="POST" action="update.php">
-                    <div class="row">
-                        <div class="mb-3 col-sm-6">
-                            <label for="firstName" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="firstName" name="firstName"
-                                   aria-describedby="emailHelp" value="<?= $guest['firstName']; ?>">
+            <div class="col-sm-6 offset-3 pb-5">
+                <h1 class=" mb-4 pt-5 text-center" style="color: #31D2F2"> Feedback</h1>
 
-                        </div>
-                        <div class="mb-3 col-sm-6">
-                            <label for="lastName" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" name="lastName" value="<?= $guest['lastName']; ?>">
-                        </div>
+                <form method="POST" action="update.php">
+                    <!--                    <div class="row">-->
+                    <div class="mb-3 col-sm-12">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name"
+                               aria-describedby="emailHelp" value="<?= $user['first_name']; ?>">
+
                     </div>
+                    <div class="mb-3 col-sm-12">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" value="<?= $user['last_name']; ?>">
+                    </div>
+                    <!--                    </div>-->
 
                     <div class="mb-3 col-sm-12">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="<?= $guest['email']; ?>">
+                        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="email" value="<?= $user['email']; ?>">
+                    </div>
+                    <div class="mb-3 col-sm-12">
+                        <label for="mobile_number" class="form-label">Mobile Number</label>
+                        <input type="text" class="form-control" id="mobile_number" name="mobile_number" placeholder="Mobile Number" value="<?= $user['mobile_number']; ?>">
                     </div>
                     <div class="mb-3">
                         <label for="message" class="col-sm-3 col-form-label">Message</label>
                         <div class="col-sm-12">
-                            <textarea type="text" name="message" class="form-control" id="message" rows="4" "><?= $guest['message']; ?></textarea>
+                            <textarea type="text" name="message" class="form-control" id="message" rows="4" placeholder="Message"><?= $user['message']; ?></textarea>
                         </div>
                     </div>
                     <input
                             type="hidden"
                             name="guestsPosition"
-                            value="<?= $guestsPosition; ?>">
-                    <button type="submit" class="btn btn-info col-3 text-white">Update</button>
+                            value="<?= $user_position; ?>">
+                    <button type="submit" class="btn btn-info col-12 text-white">Update</button>
                 </form>
 
             </div>
@@ -80,8 +85,6 @@ $guest = $guests[$guestsPosition];
 
     </div>
 </section>
-
-
 <!-- Optional JavaScript; choose one of the two! -->
 
 <!-- Option 1: Bootstrap Bundle with Popper -->

@@ -1,22 +1,15 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'] . '/php_pondit/reza_exam_12/config.php');
-session_start();
+include_once($_SERVER['DOCUMENT_ROOT'] . '/php_pondit/file_crud/config.php');
 
-use App\GuestBook\GuestBook;
-use App\Utility\Utility;
-use App\Utility\Sanitizer;
-use App\Utility\Validator;
 use App\Utility\Debugger;
 
-$storedData = null;
-$strValidatedData = [];
-if (array_key_exists('feedback_data', $_SESSION)) {
-    $strValidatedData = $_SESSION['feedback_data'];
-    $storedData = unserialize($strValidatedData);
-//    Debugger::debug($storedData);
-}
+$guests = [];
 
-//$guestbook = new GuestBook($validatedData);
+if(file_exists($data_source)){
+    $guests = unserialize(file_get_contents($data_source));
+}else{
+    echo "File not found";
+}
 
 ?>
 
@@ -31,12 +24,12 @@ if (array_key_exists('feedback_data', $_SESSION)) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
-    <title>cookie crud</title>
+    <title>File crud</title>
 </head>
 <body>
 <sectiion>
     <div class="container">
-        <h1 class=" mb-4 pt-5 text-center" style="color: #31D2F2"> Feedback</h1>
+        <h1 class="text-center mb-4 pt-5">Users</h1>
         <div class="row">
             <div class="col-sm-12">
                 <table class="table">
@@ -46,27 +39,25 @@ if (array_key_exists('feedback_data', $_SESSION)) {
                         <th scope="col">First Name</th>
                         <th scope="col">Last Name</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Mobile Number</th>
                         <th scope="col">Message</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php
-                    if(isset($storedData) && count($storedData) > 0){
+                    if(isset($guests) && count($guests) > 0){
                         $i = 0;
-                        foreach ($storedData as $key => $data) {
+                        foreach ($guests as $key => $data) {
                             ?>
                             <tr>
                                 <td><?= $i++; ?></td>
-                                <td><?= $data['first_name']; ?></td>
-                                <td><?= $data['last_name']; ?></td>
+                                <td><?= $data['firstName']; ?></td>
+                                <td><?= $data['lastName']; ?></td>
                                 <td><?= $data['email']; ?></td>
-                                <td><?= $data['mobile_number']; ?></td>
                                 <td><?= $data['message']; ?></td>
-                                <td><a href="show.php? user_position=<?= $key ?>" style="text-decoration: none;">Show</a> |
-                                    <a href="edit.php? user_position=<?= $key ?>" style="text-decoration: none;">Edit</a> |
-                                    <a href="delete.php? user_position=<?= $key ?>" style="text-decoration: none;">Delete</a>
+                                <td><a href="show.php? guestsPosition=<?= $key ?>" style="text-decoration: none;">Show</a> |
+                                    <a href="edit.php? guestsPosition=<?= $key ?>" style="text-decoration: none;">Edit</a> |
+                                    <a href="delete.php?guestsPosition=<?= $key ?>" style="text-decoration: none;">Delete</a>
                                 </td>
                             </tr>
                             <?php
